@@ -6,7 +6,7 @@ let esPrimo = true;
 let dividendos = [2, 3, 4, 5, 6, 7, 8, 9]
 
 for (let i of dividendos) {
-    if (numeroAEvaluar % i == 0) {
+    if ((numeroAEvaluar % i == 0) && (i != numeroAEvaluar)) {
         console.log(`Div evaluado ${i}`);
         esPrimo = false;
         break;
