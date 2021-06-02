@@ -3,9 +3,7 @@
 const letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
 
 let dni = 0;
-while ((dni.length != 8) || (dni <= 0)) {
-    console.log(dni);
-    console.log(dni.length);
+while ((dni.toString().length != 8) || (parseInt(dni <= 0))) {
     dni = parseInt(prompt("Ingrese el dni, 8 digitos, mayor que 0: "));
 }
 letra = letras[(dni % 23)];
