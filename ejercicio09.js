@@ -8,10 +8,16 @@ let vocales = ['a', 'e', 'i', 'o', 'u'];
 palabra = prompt("Ingrese una palabra a evaluar: ");
 
 for (let i = 0; i < palabra.length; i++) {
-    if (vocales.find(palabra[i]) == true) {
+    let encontrada = false;
+    for (let x of vocales) {
+        if (x == palabra[i]) {
+            encontrada = true;
+        }
+    }
+    if (encontrada == true) {
         contadorVoc += 1;
     }
-    if (vocales.find(palabra[i]) == false) {
+    if (encontrada == false) {
         contadorCons += 1;
     }
 }
