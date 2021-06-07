@@ -19,20 +19,26 @@ class Book {
         this.year = year;
         this.genre = genre;
     }
-
     infoLibro() {
         return { `${this.title} de ${this.autor} - ${this.year} - ${this.genre}` }
     }
 }
 
-const booksCount = 3;
+const librarySize = 3;
 
 function enterBook() {
-    let newBook = new Book
+    newTitle = dataRequest(title);
+    newAutor = dataRequest(autor);
+    newYear = dataRequest(year);
+    newGenre = dataRequest(genre);
+
+    let newBook = new Book(newTitle, newAutor, newYear, newGenre);
+
+    return newBook;
 }
 
 function loadLibrary(library) => {
-    while (let i < booksCount) {
+    while (let i < librarySize) {
         library.push(enterBook());
     }
     return library;
