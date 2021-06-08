@@ -1,4 +1,4 @@
-/* 
+/*
 - Crea una clase Libro
 - La clase libro tendrá título, autor, año y género.
 - Crea un método que devuelva toda la información del libro
@@ -20,13 +20,32 @@ class Book {
         this.genre = genre;
     }
     infoLibro() {
-        return { `${this.title} de ${this.autor} - ${this.year} - ${this.genre}` }
+        return { `${this.title} de ${this.autor} - ${this.year} - ${this.genre}` };
     }
 }
 
 const librarySize = 3;
 
-function enterBook() {
+function inputNotEmpty = (textToShow) => {
+    let notempty = false;
+    let temporalInput;
+    while (notempty != true) {
+        temporalInput = prompt(`Ingrese el texto para el ${textToShow}.`);
+        if ((temporalInput != ' ') & (temporalInput.length > 3)) {
+            notempty = true;
+        }
+    }
+    return temporalInput;
+}
+
+function dataRequest = (data) => {
+    let temporalData;
+    if (data == "title") {
+        temporalData = inputNotEmpty(data, 2);
+    }
+}
+
+function enterBook = () => {
     newTitle = dataRequest(title);
     newAutor = dataRequest(autor);
     newYear = dataRequest(year);
@@ -37,11 +56,11 @@ function enterBook() {
     return newBook;
 }
 
-function loadLibrary(library) => {
+function loadLibrary = (library) => {
     while (let i < librarySize) {
         library.push(enterBook());
     }
     return library;
 }
 
-let arrayLibrary = [];
+let Library = [];
