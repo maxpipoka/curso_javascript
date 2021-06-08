@@ -26,30 +26,48 @@ class Book {
 
 const librarySize = 3;
 
-function inputNotEmpty = (textToShow) => {
+function inputNotEmpty = (textToShow, chars) => {
     let notempty = false;
     let temporalInput;
     while (notempty != true) {
         temporalInput = prompt(`Ingrese el texto para el ${textToShow}.`);
-        if ((temporalInput != ' ') & (temporalInput.length > 3)) {
+        if ((temporalInput != ' ') & (temporalInput.length > chars)) {
             notempty = true;
         }
     }
     return temporalInput;
 }
 
+function checkNumber = (dataYear) => {
+    parseInt(dataYear);
+
+}
+
 function dataRequest = (data) => {
     let temporalData;
+    let valido = false;
     if (data == "title") {
         temporalData = inputNotEmpty(data, 2);
+    }
+    if (data == "autor") {
+        temporalData = inputNotEmpty(data, 2);
+    }
+    if (data == "year") {
+        temporalData = parseInt(inputNotEmpty(data, 4));
+    }
+    if (data == "genre") {
+        temporalData = inputNotEmpty(data, 5);
+    }
+    if (valido == true) {
+        return temporalData;
     }
 }
 
 function enterBook = () => {
-    newTitle = dataRequest(title);
-    newAutor = dataRequest(autor);
-    newYear = dataRequest(year);
-    newGenre = dataRequest(genre);
+    newTitle = dataRequest("title");
+    newAutor = dataRequest("autor");
+    newYear = dataRequest("year");
+    newGenre = dataRequest("genre");
 
     let newBook = new Book(newTitle, newAutor, newYear, newGenre);
 
