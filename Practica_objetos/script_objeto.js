@@ -20,11 +20,9 @@ class Book {
         this.genre = genre;
     }
     infoLibro() {
-        return { `${this.title} de ${this.autor} - ${this.year} - ${this.genre}` };
+        console.log(`${this.title} de ${this.autor} - ${this.year} - ${this.genre}`);
     }
 }
-
-const librarySize = 3;
 
 function inputNotEmpty = (textToShow, chars) => {
     let notempty = false;
@@ -39,8 +37,10 @@ function inputNotEmpty = (textToShow, chars) => {
 }
 
 function checkNumber = (dataYear) => {
-    parseInt(dataYear);
-
+    if (isNaN(dataYear)) {
+        return true;
+    }
+    return false;
 }
 
 function dataRequest = (data) => {
@@ -54,6 +54,7 @@ function dataRequest = (data) => {
     }
     if (data == "year") {
         temporalData = parseInt(inputNotEmpty(data, 4));
+        valido = checkNumber(temporalData);
     }
     if (data == "genre") {
         temporalData = inputNotEmpty(data, 5);
@@ -82,3 +83,5 @@ function loadLibrary = (library) => {
 }
 
 let Library = [];
+
+const librarySize = prompt(`Ingrese la cantidad de libros a cargar en la biblioteca: `);
