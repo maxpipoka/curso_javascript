@@ -30,7 +30,7 @@ function inputNotEmpty(textToShow, chars) {
     let temporalInput;
     while (notempty != true) {
         temporalInput = prompt(`Ingrese el texto para el ${textToShow}.`);
-        if ((temporalInput != ' ') & (temporalInput.length > chars)) {
+        if ((temporalInput != ' ') & (temporalInput.length >= chars)) {
             notempty = true;
         }
     }
@@ -39,14 +39,16 @@ function inputNotEmpty(textToShow, chars) {
 
 function checkNumber(dataYear) {
     if (isNaN(dataYear)) {
-        return true;
+        return false;
+        console.log("no es numero")
     }
-    return false;
+    console.log("es un numero")
+    return true;
 }
 
 function dataRequest(data) {
     let temporalData;
-    let valido = false;
+    let valido = true;
     if (data == "title") {
         temporalData = inputNotEmpty(data, 2);
     }
@@ -54,6 +56,7 @@ function dataRequest(data) {
         temporalData = inputNotEmpty(data, 2);
     }
     if (data == "year") {
+        valido = false;
         temporalData = parseInt(inputNotEmpty(data, 4));
         valido = checkNumber(temporalData);
     }
@@ -62,6 +65,9 @@ function dataRequest(data) {
     }
     if (valido == true) {
         return temporalData;
+    }
+    if (valido != true){
+        console.log("Valido es false");
     }
 }
 
