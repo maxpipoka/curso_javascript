@@ -12,6 +12,7 @@
 - Crea una función que pida un género y muestre la información de los libros que pertenezcan a ese género usando un el método que devuelve la información
 */
 
+
 class Book {
     constructor(title, autor, year, genre) {
         this.title = title;
@@ -24,7 +25,7 @@ class Book {
     }
 }
 
-function inputNotEmpty = (textToShow, chars) => {
+function inputNotEmpty(textToShow, chars) {
     let notempty = false;
     let temporalInput;
     while (notempty != true) {
@@ -36,14 +37,14 @@ function inputNotEmpty = (textToShow, chars) => {
     return temporalInput;
 }
 
-function checkNumber = (dataYear) => {
+function checkNumber(dataYear) {
     if (isNaN(dataYear)) {
         return true;
     }
     return false;
 }
 
-function dataRequest = (data) => {
+function dataRequest(data) {
     let temporalData;
     let valido = false;
     if (data == "title") {
@@ -64,24 +65,31 @@ function dataRequest = (data) => {
     }
 }
 
-function enterBook = () => {
-    newTitle = dataRequest("title");
-    newAutor = dataRequest("autor");
-    newYear = dataRequest("year");
-    newGenre = dataRequest("genre");
+function enterBook() {
+    let newTitle = dataRequest("title");
+    let newAutor = dataRequest("autor");
+    let newYear = dataRequest("year");
+    let newGenre = dataRequest("genre");
 
     let newBook = new Book(newTitle, newAutor, newYear, newGenre);
 
     return newBook;
 }
 
-function loadLibrary = (library) => {
-    while (let i < librarySize) {
+function loadLibrary(library) {
+    let i = 0;
+    while (i < librarySize) {
         library.push(enterBook());
+        i += 1;
     }
     return library;
 }
 
-let Library = [];
+
+// Main
+
+let library = [];
 
 const librarySize = prompt(`Ingrese la cantidad de libros a cargar en la biblioteca: `);
+
+loadLibrary(library);
