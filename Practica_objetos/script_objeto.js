@@ -47,27 +47,9 @@ function checkNumber(dataYear) {
 }
 
 function dataRequest(data) {
-    let temporalData;
-    let valido = true;
-    if (data == "title") {
-        temporalData = inputNotEmpty(data, 2);
-    }
-    if (data == "autor") {
-        temporalData = inputNotEmpty(data, 2);
-    }
-    if (data == "year") {
-        valido = false;
-        temporalData = parseInt(inputNotEmpty(data, 4));
-        valido = checkNumber(temporalData);
-    }
-    if (data == "genre") {
-        temporalData = inputNotEmpty(data, 5);
-    }
-    if (valido == true) {
-        return temporalData;
-    }
-    if (valido != true){
-        console.log("Valido es false");
+    let validated = false;
+    while (validated != true) {
+
     }
 }
 
@@ -90,7 +72,6 @@ function loadLibrary(library) {
     }
     return library;
 }
-
 
 // Main
 
