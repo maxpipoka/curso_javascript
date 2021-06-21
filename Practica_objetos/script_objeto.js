@@ -21,7 +21,7 @@ class Book {
         this.genre = genre;
     }
     infoLibro() {
-        console.log(`${this.title} de ${this.autor} - ${this.year} - ${this.genre}`);
+        return (`${this.title} de ${this.autor} - ${this.year} - ${this.genre}`);
     }
 }
 
