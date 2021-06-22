@@ -26,12 +26,15 @@ class Book {
 }
 
 function inputNotEmpty(textToShow, chars) {
-    let notempty = false;
+    let notEmpty = false;
     let temporalInput;
-    while (notempty != true) {
+    while (notEmpty != true) {
         temporalInput = prompt(`Ingrese el texto para el ${textToShow}.`);
         if ((temporalInput != ' ') & (temporalInput.length >= chars)) {
-            notempty = true;
+            notEmpty = true;
+        }
+        if ((temporalInput == ' ') || (temporalInput < chars)) {
+            alert(`Valor ingresado inválido, ingrese el texto para el ${textToShow}`);
         }
     }
     return temporalInput;
@@ -48,9 +51,23 @@ function checkNumber(dataYear) {
 
 function dataRequest(data) {
     let validated = false;
+    let tempDataRequest;
     while (validated != true) {
+        if (data == 'title') {
+            tempDataRequest = inputNotEmpty(data, 3);
+            validated = true;
+        }
+        if (data == 'autor') {
+            tempDataRequest = inputNotEmpty(data, 3);
+            validated = true;
+        }
+        if (data == 'year') {
+            tempDataRequest = inputNotEmpty(data, 4);
+
+        }
 
     }
+    return tempDataRequest;
 }
 
 function enterBook() {
@@ -60,7 +77,6 @@ function enterBook() {
     let newGenre = dataRequest("genre");
 
     let newBook = new Book(newTitle, newAutor, newYear, newGenre);
-
     return newBook;
 }
 
